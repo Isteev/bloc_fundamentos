@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Grid, Stack, useMediaQuery } from "@mui/material";
+import { AppContent } from "./App.style";
+import Body from "./components/Body/Body";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 
 function App() {
+  const isMobile = useMediaQuery("(max-width: 767px)");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContent container>
+      <Header isMobile={isMobile} />
+
+      <Grid item xs={12} style={{ overflowY: "scroll" }}>
+        <Stack style={{ width: isMobile ? "90%" : "70%", margin: "0 auto" }}>
+          <Grid container padding={"50px 0px"}>
+            <Body isMobile={isMobile} />
+          </Grid>
+        </Stack>
+        <Footer isMobile={isMobile} />
+      </Grid>
+    </AppContent>
   );
 }
 
