@@ -10,6 +10,7 @@ import items from "../../utils/items";
 
 //banner
 import banner from "../../assets/banner.jpg";
+import References from "../../utils/references.js";
 
 const Body = ({ isMobile }) => {
   return (
@@ -107,6 +108,15 @@ const Body = ({ isMobile }) => {
               )}
             </>
           ))}
+
+          <Grid item xs={12}>
+            <Title>Referencias</Title>
+            {References.map((v) => (
+              <Typography color={GreyColor}>
+                <li>{v.value}</li>
+              </Typography>
+            ))}
+          </Grid>
         </Grid>
       </Stack>
     </Grid>
